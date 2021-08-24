@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Avisen || </title>
+    <title>AVISEN || </title>
     <meta name="author" content="Avisen">
     <meta name="description" content=" ">
     <meta name="keywords" content=" ">
@@ -47,7 +47,7 @@
 <nav id="menu">
     <div class="desktop-menu">
         <a href="/">
-            <span class="title">Avisen</span>
+            <span class="title">AVISEN</span>
         </a>
         
         <a href="/">
@@ -57,32 +57,32 @@
             <span>home</span>
         </a>
         
-        <a href="/2021/08/24/info/index.html">
-            <span>
-                <a-icon type="idcard" theme="filled" />
-            </span>
-            <span>about</span>
-        </a>
-        
-        <a href="/archives">
+        <a href="/archives/">
             <span>
                 <a-icon type="folder" theme="filled" />
             </span>
             <span>archives</span>
         </a>
         
-        <a href="/categories/about/index.html">
+        <a href="/categories/">
             <span>
                 <a-icon type="book" theme="filled" />
             </span>
             <span>categories</span>
         </a>
         
-        <a href="/tags/about/index.html">
+        <a href="/tags/">
             <span>
                 <a-icon type="tags" theme="filled" />
             </span>
             <span>tags</span>
+        </a>
+        
+        <a href="/about/">
+            <span>
+                <a-icon type="idcard" theme="filled" />
+            </span>
+            <span>about</span>
         </a>
         
     </div>
@@ -92,7 +92,7 @@
             <span style="margin-right: 10px;">
                 <a-icon type="appstore" theme="filled" />
             </span>
-            <span>Avisen</span>
+            <span>AVISEN</span>
         </div>
         <div class="items" v-show="menu_show">
             
@@ -105,16 +105,7 @@
                 </div>
             </a>
             
-            <a href="/2021/08/24/info/index.html">
-                <div class="item">
-                    <div style="min-width:20px; max-width:50px; width: 10%">
-                        <a-icon type="idcard" theme="filled" />
-                    </div>
-                    <div style="min-width:100px;max-width: 150%;width: 20%;">about</div>
-                </div>
-            </a>
-            
-            <a href="/archives">
+            <a href="/archives/">
                 <div class="item">
                     <div style="min-width:20px; max-width:50px; width: 10%">
                         <a-icon type="folder" theme="filled" />
@@ -123,7 +114,7 @@
                 </div>
             </a>
             
-            <a href="/categories/about/index.html">
+            <a href="/categories/">
                 <div class="item">
                     <div style="min-width:20px; max-width:50px; width: 10%">
                         <a-icon type="book" theme="filled" />
@@ -132,12 +123,21 @@
                 </div>
             </a>
             
-            <a href="/tags/about/index.html">
+            <a href="/tags/">
                 <div class="item">
                     <div style="min-width:20px; max-width:50px; width: 10%">
                         <a-icon type="tags" theme="filled" />
                     </div>
                     <div style="min-width:100px;max-width: 150%;width: 20%;">tags</div>
+                </div>
+            </a>
+            
+            <a href="/about/">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="idcard" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">about</div>
                 </div>
             </a>
             
@@ -149,11 +149,25 @@
                 </div>
 
                 <div id="main">
-                    <div id="home-head" style=background-image:url('background.png')>
+                    <div id="home-head" style=background-image:url('1077298.png')>
     <script>
         var menu = document.getElementById("menu")
         menu.className += " menu-color"
     </script>
+     
+    <div id="home-info" class="home-info" @click="home_click">
+        <span class="loop"></span>
+        <span class="loop"></span>
+        <span class="loop"></span>
+        <span class="loop"></span>
+        <span class="info">
+            <div class="wrap">
+                <h1>AVISEN</h1>
+                <h3></h3>
+                <h5></h5>
+            </div>
+        </span>
+    </div>
      
 </div>
 
@@ -164,72 +178,6 @@
 
         <div id="posts">
             
-
-<div class="post">
-
-    <a href="/2021/08/24/info/">
-        <h2>
-            info
-        </h2>
-    </a>
-
-    <div class="category-and-date">
-
-        
-        <span class="category">
-            <a href="/categories/about">
-                <span class="icon">
-                    <a-icon type="book" theme="filled" /></span>
-                about
-            </a>
-        </span>
-        
-
-        <span class="date">
-            <span class="icon">
-                <a-icon type="calendar" theme="filled" />
-            </span>
-            2021/8/24
-        </span>
-
-    </div>
-
-    <div class="excerpt">
-        <div class="content" v-pre>
-            
-            
-            <h1 id="Personal-Information"><a href="#Personal-Information" class="headerlink" title="Personal Information"></a>Personal Information</h1><p>A Chinese software development engineer.</p>
-<p>A Java developer. Like the Open Source, music and Anime.</p>
-<p>Learning development technology now.</p>
-<h1 id="Blog"><a href="#Blog" class="headerlink" title="Blog"></a>Blog</h1><p>This blog is mainly used to record software technical notes and study notes.</p>
-<p>It is built with HEXO engine and Particle theme.</p>
-<h1 id="Contact"><a href="#Contact" class="headerlink" title="Contact"></a>Contact</h1><p>Gmail: <a href="mailto:&#x61;&#118;&#x69;&#x73;&#101;&#110;&#x30;&#54;&#50;&#57;&#x40;&#103;&#x6d;&#97;&#105;&#x6c;&#x2e;&#99;&#x6f;&#109;">&#x61;&#118;&#x69;&#x73;&#101;&#110;&#x30;&#54;&#50;&#57;&#x40;&#103;&#x6d;&#97;&#105;&#x6c;&#x2e;&#99;&#x6f;&#109;</a></p>
-<p>GitHub: <a target="_blank" rel="noopener" href="https://github.com/Avisen2333">avisen</a><br>Twitter: <a target="_blank" rel="noopener" href="https://twitter.com/avisen68060389">avisen</a><br>Telegram: <a target="_blank" rel="noopener" href="https://t.me/Avisen0629">avisen</a></p>
-
-            
-        </div>
-    </div>
-
-    <div class="post-tags">
-        
-        <span class="icon">
-            <a-icon type="tags" theme="filled" />
-        </span>
-        
-        
-        <span class="tag">
-            
-            <a href="/tags/about" style=color:#607d8b>
-                about
-            </a>
-        </span>
-        
-    </div>
-
-    <a href="/2021/08/24/info/ " class="go-post">
-        阅读全文
-    </a>
-</div>
 
 <div class="post">
 
@@ -278,7 +226,7 @@
 <li>New repository</li>
 <li>设置仓库名为 用户名.github.io</li>
 </ol>
-<h2 id="本地测试"><a href="#本地测试" class="headerlink" title="本地测试"></a>本地测试</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">hexo n new_blog #新建博文</span><br><span class="line"></span><br><span class="line">hexo g	#生成</span><br><span class="line"></span><br><span class="line">hexo s	#启动本地预览</span><br></pre></td></tr></table></figure>
+<h2 id="本地测试"><a href="#本地测试" class="headerlink" title="本地测试"></a>本地测试</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo n new_blog #新建博文</span><br><span class="line">hexo g	#生成</span><br><span class="line">hexo s	#启动本地预览</span><br></pre></td></tr></table></figure>
 
 <p>浏览器地址：localhost:4000</p>
 <h2 id="生成SSH密钥文件"><a href="#生成SSH密钥文件" class="headerlink" title="生成SSH密钥文件"></a>生成SSH密钥文件</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name <span class="string">&quot;Git用户名&quot;</span></span><br><span class="line">git config --global user.email <span class="string">&quot;Git邮箱&quot;</span></span><br><span class="line">ssh-keygen -t rsa -C <span class="string">&quot;Git邮箱&quot;</span></span><br></pre></td></tr></table></figure>
@@ -483,7 +431,7 @@
 <footer id="footer">
     <div class="footer-wrap">
         <div>
-            © 2021 - 2021 Avisen
+            © 2021 - 2021 AVISEN
             <span class="footer-icon">
                 <a-icon type="flag" theme="filled" /></span>
             @Avisen

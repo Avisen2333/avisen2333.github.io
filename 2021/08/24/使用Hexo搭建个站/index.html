@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Avisen || 使用Hexo搭建个站</title>
+    <title>AVISEN || 使用Hexo搭建个站</title>
     <meta name="author" content="Avisen">
     <meta name="description" content=" ">
     <meta name="keywords" content=" ">
@@ -47,7 +47,7 @@
 <nav id="menu">
     <div class="desktop-menu">
         <a href="/">
-            <span class="title">Avisen</span>
+            <span class="title">AVISEN</span>
         </a>
         
         <a href="/">
@@ -57,32 +57,32 @@
             <span>home</span>
         </a>
         
-        <a href="/2021/08/24/info/index.html">
-            <span>
-                <a-icon type="idcard" theme="filled" />
-            </span>
-            <span>about</span>
-        </a>
-        
-        <a href="/archives">
+        <a href="/archives/">
             <span>
                 <a-icon type="folder" theme="filled" />
             </span>
             <span>archives</span>
         </a>
         
-        <a href="/categories/about/index.html">
+        <a href="/categories/">
             <span>
                 <a-icon type="book" theme="filled" />
             </span>
             <span>categories</span>
         </a>
         
-        <a href="/tags/about/index.html">
+        <a href="/tags/">
             <span>
                 <a-icon type="tags" theme="filled" />
             </span>
             <span>tags</span>
+        </a>
+        
+        <a href="/about/">
+            <span>
+                <a-icon type="idcard" theme="filled" />
+            </span>
+            <span>about</span>
         </a>
         
     </div>
@@ -92,7 +92,7 @@
             <span style="margin-right: 10px;">
                 <a-icon type="appstore" theme="filled" />
             </span>
-            <span>Avisen</span>
+            <span>AVISEN</span>
         </div>
         <div class="items" v-show="menu_show">
             
@@ -105,16 +105,7 @@
                 </div>
             </a>
             
-            <a href="/2021/08/24/info/index.html">
-                <div class="item">
-                    <div style="min-width:20px; max-width:50px; width: 10%">
-                        <a-icon type="idcard" theme="filled" />
-                    </div>
-                    <div style="min-width:100px;max-width: 150%;width: 20%;">about</div>
-                </div>
-            </a>
-            
-            <a href="/archives">
+            <a href="/archives/">
                 <div class="item">
                     <div style="min-width:20px; max-width:50px; width: 10%">
                         <a-icon type="folder" theme="filled" />
@@ -123,7 +114,7 @@
                 </div>
             </a>
             
-            <a href="/categories/about/index.html">
+            <a href="/categories/">
                 <div class="item">
                     <div style="min-width:20px; max-width:50px; width: 10%">
                         <a-icon type="book" theme="filled" />
@@ -132,12 +123,21 @@
                 </div>
             </a>
             
-            <a href="/tags/about/index.html">
+            <a href="/tags/">
                 <div class="item">
                     <div style="min-width:20px; max-width:50px; width: 10%">
                         <a-icon type="tags" theme="filled" />
                     </div>
                     <div style="min-width:100px;max-width: 150%;width: 20%;">tags</div>
+                </div>
+            </a>
+            
+            <a href="/about/">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="idcard" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">about</div>
                 </div>
             </a>
             
@@ -183,7 +183,7 @@
             
             <span class="tag">
                 
-                <a href="/tags/hexo" style=color:#6484be>
+                <a href="/tags/hexo" style=color:#607d8b>
                     hexo
                 </a>
             </span>
@@ -207,7 +207,7 @@
 <li>New repository</li>
 <li>设置仓库名为 用户名.github.io</li>
 </ol>
-<h2 id="本地测试"><a href="#本地测试" class="headerlink" title="本地测试"></a>本地测试</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">hexo n new_blog #新建博文</span><br><span class="line"></span><br><span class="line">hexo g	#生成</span><br><span class="line"></span><br><span class="line">hexo s	#启动本地预览</span><br></pre></td></tr></table></figure>
+<h2 id="本地测试"><a href="#本地测试" class="headerlink" title="本地测试"></a>本地测试</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo n new_blog #新建博文</span><br><span class="line">hexo g	#生成</span><br><span class="line">hexo s	#启动本地预览</span><br></pre></td></tr></table></figure>
 
 <p>浏览器地址：localhost:4000</p>
 <h2 id="生成SSH密钥文件"><a href="#生成SSH密钥文件" class="headerlink" title="生成SSH密钥文件"></a>生成SSH密钥文件</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name <span class="string">&quot;Git用户名&quot;</span></span><br><span class="line">git config --global user.email <span class="string">&quot;Git邮箱&quot;</span></span><br><span class="line">ssh-keygen -t rsa -C <span class="string">&quot;Git邮箱&quot;</span></span><br></pre></td></tr></table></figure>
@@ -305,7 +305,7 @@
 <footer id="footer">
     <div class="footer-wrap">
         <div>
-            © 2021 - 2021 Avisen
+            © 2021 - 2021 AVISEN
             <span class="footer-icon">
                 <a-icon type="flag" theme="filled" /></span>
             @Avisen
