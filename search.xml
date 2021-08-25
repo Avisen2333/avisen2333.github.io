@@ -96,10 +96,8 @@
 </li>
 <li><p>本地 blog 文件夹 - source - 新建文本文件 - 内容填写阿里云域名 - 命名为 CNAME 格式为所有文件 - 保存</p>
 </li>
-<li><pre><code> hexo cl
- 
+<li><pre><code class="c"> hexo cl
  hexo g
- 
  hexo d
 </code></pre>
 </li>
