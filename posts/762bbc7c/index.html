@@ -20,23 +20,28 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"avisen95.com","root":"/","images":"/images","scheme":"Gemini","version":"8.7.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
-<meta property="og:type" content="website">
-<meta property="og:title" content="Avisen&#39;s Notes">
-<meta property="og:url" content="http://avisen95.com/index.html">
+<meta name="description" content="写在前面记录搭建本站的过程，以及踩过的那些坑。 搭建环境：  域名 - 阿里云 Hexo 5.4.0 Git  准备工作安装hexo$ npm install -g hexo-cli 初始化hexo init blog 创建GitHub仓库 登录GitHub New repository 设置仓库名为 用户名.github.io  本地测试123hexo n new_blog #新建博文hexo">
+<meta property="og:type" content="article">
+<meta property="og:title" content="使用Hexo搭建个站">
+<meta property="og:url" content="http://avisen95.com/posts/762bbc7c/index.html">
 <meta property="og:site_name" content="Avisen&#39;s Notes">
+<meta property="og:description" content="写在前面记录搭建本站的过程，以及踩过的那些坑。 搭建环境：  域名 - 阿里云 Hexo 5.4.0 Git  准备工作安装hexo$ npm install -g hexo-cli 初始化hexo init blog 创建GitHub仓库 登录GitHub New repository 设置仓库名为 用户名.github.io  本地测试123hexo n new_blog #新建博文hexo">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-08-24T04:13:30.000Z">
+<meta property="article:modified_time" content="2021-08-24T06:31:42.478Z">
 <meta property="article:author" content="Avisen">
+<meta property="article:tag" content="hexo">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="http://avisen95.com/">
+<link rel="canonical" href="http://avisen95.com/posts/762bbc7c/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":true,"isPost":false,"lang":"en","comments":"","permalink":"","path":"index.html","title":""}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://avisen95.com/posts/762bbc7c/","path":"posts/762bbc7c/","title":"使用Hexo搭建个站"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>Avisen's Notes</title>
+<title>使用Hexo搭建个站 | Avisen's Notes</title>
   
 
 
@@ -126,7 +131,7 @@
 
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           Table of Contents
@@ -139,6 +144,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%86%99%E5%9C%A8%E5%89%8D%E9%9D%A2"><span class="nav-number">1.</span> <span class="nav-text">写在前面</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C"><span class="nav-number">2.</span> <span class="nav-text">准备工作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85hexo"><span class="nav-number">2.1.</span> <span class="nav-text">安装hexo</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="nav-number">2.2.</span> <span class="nav-text">初始化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9B%E5%BB%BAGitHub%E4%BB%93%E5%BA%93"><span class="nav-number">2.3.</span> <span class="nav-text">创建GitHub仓库</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%AC%E5%9C%B0%E6%B5%8B%E8%AF%95"><span class="nav-number">3.</span> <span class="nav-text">本地测试</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%94%9F%E6%88%90SSH%E5%AF%86%E9%92%A5%E6%96%87%E4%BB%B6"><span class="nav-number">4.</span> <span class="nav-text">生成SSH密钥文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%85%8D%E7%BD%AEGitHub%E5%AF%86%E9%92%A5"><span class="nav-number">5.</span> <span class="nav-text">配置GitHub密钥</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Git%E6%8E%A8%E9%80%81"><span class="nav-number">6.</span> <span class="nav-text">Git推送</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#hexo-d-%E5%87%BA%E9%94%99%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95"><span class="nav-number">7.</span> <span class="nav-text">hexo d 出错的解决办法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%91%E5%AE%9A%E5%9F%9F%E5%90%8D"><span class="nav-number">8.</span> <span class="nav-text">绑定域名</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -197,16 +203,17 @@
 </noscript>
 
 
-    <div class="main-inner index posts-expand">
+    <div class="main-inner post posts-expand">
 
-    
+
+  
 
 
 <div class="post-block">
   
   
 
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
     <link itemprop="mainEntityOfPage" href="http://avisen95.com/posts/762bbc7c/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -219,9 +226,9 @@
       <meta itemprop="name" content="Avisen's Notes">
     </span>
       <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/posts/762bbc7c/" class="post-title-link" itemprop="url">使用Hexo搭建个站</a>
-        </h2>
+        <h1 class="post-title" itemprop="name headline">
+          使用Hexo搭建个站
+        </h1>
 
         <div class="post-meta-container">
           <div class="post-meta">
@@ -254,7 +261,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h2 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h2><p>记录搭建本站的过程，以及踩过的那些坑。</p>
+        <h2 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h2><p>记录搭建本站的过程，以及踩过的那些坑。</p>
 <p>搭建环境：</p>
 <ul>
 <li>域名 - 阿里云</li>
@@ -358,7 +365,6 @@
 </li>
 </ol>
 
-      
     </div>
 
     
@@ -366,11 +372,33 @@
     
 
     <footer class="post-footer">
-        <div class="post-eof"></div>
-      
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>Post author:  </strong>Avisen
+  </li>
+  <li class="post-copyright-link">
+      <strong>Post link: </strong>
+      <a href="http://avisen95.com/posts/762bbc7c/" title="使用Hexo搭建个站">http://avisen95.com/posts/762bbc7c/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/hexo/" rel="tag"># hexo</a>
+          </div>
+
+        
+
     </footer>
   </article>
 </div>
+
 
 
 
