@@ -96,9 +96,9 @@
 </li>
 <li><p>本地 blog 文件夹 - source - 新建文本文件 - 内容填写阿里云域名 - 命名为 CNAME 格式为所有文件 - 保存</p>
 </li>
-<li><pre><code class="c"> hexo cl
- hexo g
- hexo d
+<li><pre><code class="c"> hexo cl    #清除缓存
+ hexo g    #生成
+ hexo d    #部署
 </code></pre>
 </li>
 <li><p>浏览器输入域名测试访问</p>
