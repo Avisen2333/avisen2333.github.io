@@ -22,13 +22,13 @@
 <script class="next-config" data-name="main" type="application/json">{"hostname":"avisen95.com","root":"/","images":"/images","scheme":"Pisces","version":"8.7.0","exturl":false,"sidebar":{"position":"left","width":320,"display":"post","padding":18,"offset":30},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"disqus","storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 <meta name="description" content="记录 Docker 在 CentOS7 下的安装与常用命令 环境：  CentOS7">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Docker的安装使用">
+<meta property="og:title" content="Docker的安装及使用">
 <meta property="og:url" content="http://avisen95.com/posts/f9a8f708/index.html">
 <meta property="og:site_name" content="Avisen&#39;s Notes">
 <meta property="og:description" content="记录 Docker 在 CentOS7 下的安装与常用命令 环境：  CentOS7">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-08-26T03:12:31.000Z">
-<meta property="article:modified_time" content="2021-08-26T07:13:29.682Z">
+<meta property="article:modified_time" content="2021-08-26T08:17:05.083Z">
 <meta property="article:author" content="Avisen">
 <meta property="article:tag" content="Docker">
 <meta name="twitter:card" content="summary">
@@ -38,10 +38,10 @@
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://avisen95.com/posts/f9a8f708/","path":"posts/f9a8f708/","title":"Docker的安装使用"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://avisen95.com/posts/f9a8f708/","path":"posts/f9a8f708/","title":"Docker的安装及使用"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>Docker的安装使用 | Avisen's Notes</title>
+<title>Docker的安装及使用 | Avisen's Notes</title>
   
 
 
@@ -145,7 +145,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%89%E8%A3%85-Docker"><span class="nav-number">1.</span> <span class="nav-text">安装 Docker</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9D%9E%E6%9C%80%E6%96%B0%E7%89%88%E6%9C%AC%E5%AE%89%E8%A3%85"><span class="nav-number">1.1.</span> <span class="nav-text">非最新版本安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%80%E6%96%B0%E7%89%88%E6%9C%AC%E5%AE%89%E8%A3%85"><span class="nav-number">1.2.</span> <span class="nav-text">最新版本安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8B-Docker-%E7%89%88%E6%9C%AC"><span class="nav-number">1.3.</span> <span class="nav-text">查看 Docker 版本</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%AF%E5%8A%A8-Docker"><span class="nav-number">1.4.</span> <span class="nav-text">启动 Docker</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AE%E9%9A%8F%E7%B3%BB%E7%BB%9F%E5%90%AF%E5%8A%A8"><span class="nav-number">1.5.</span> <span class="nav-text">设置随系统启动</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Docker-%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C"><span class="nav-number">2.</span> <span class="nav-text">Docker 的基本操作</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%B9%E5%99%A8%E6%93%8D%E4%BD%9C"><span class="nav-number">2.1.</span> <span class="nav-text">容器操作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#docker-run-start-stop-restart-kill-rm-pause-unpause"><span class="nav-number">2.1.1.</span> <span class="nav-text">docker [run|start|stop|restart|kill|rm|pause|unpause]</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#docker-ps-inspect-exec-logs-export-import"><span class="nav-number">2.1.2.</span> <span class="nav-text">docker [ps|inspect|exec|logs|export|import]</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%95%9C%E5%83%8F%E6%93%8D%E4%BD%9C"><span class="nav-number">2.2.</span> <span class="nav-text">镜像操作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#docker-images-rmi-tag-build-history-save-load"><span class="nav-number">2.2.1.</span> <span class="nav-text">docker images|rmi|tag|build|history|save|load]</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%A4%E4%BA%92%E5%BC%8F%E5%88%9B%E5%BB%BA%E5%AE%B9%E5%99%A8%E5%B9%B6%E8%BF%9B%E5%85%A5"><span class="nav-number">2.3.</span> <span class="nav-text">交互式创建容器并进入</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%89%E8%A3%85-Docker"><span class="nav-number">1.</span> <span class="nav-text">安装 Docker</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9D%9E%E6%9C%80%E6%96%B0%E7%89%88%E6%9C%AC%E5%AE%89%E8%A3%85"><span class="nav-number">1.1.</span> <span class="nav-text">非最新版本安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%80%E6%96%B0%E7%89%88%E6%9C%AC%E5%AE%89%E8%A3%85"><span class="nav-number">1.2.</span> <span class="nav-text">最新版本安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8B-Docker-%E7%89%88%E6%9C%AC"><span class="nav-number">1.3.</span> <span class="nav-text">查看 Docker 版本</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%AF%E5%8A%A8-Docker"><span class="nav-number">1.4.</span> <span class="nav-text">启动 Docker</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AE%E9%9A%8F%E7%B3%BB%E7%BB%9F%E5%90%AF%E5%8A%A8"><span class="nav-number">1.5.</span> <span class="nav-text">设置随系统启动</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Docker-%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C"><span class="nav-number">2.</span> <span class="nav-text">Docker 的基本操作</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%B9%E5%99%A8%E6%93%8D%E4%BD%9C"><span class="nav-number">2.1.</span> <span class="nav-text">容器操作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#docker-run-start-stop-restart-kill-rm-pause-unpause"><span class="nav-number">2.1.1.</span> <span class="nav-text">docker [run|start|stop|restart|kill|rm|pause|unpause]</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#docker-ps-inspect-exec-logs-export-import"><span class="nav-number">2.1.2.</span> <span class="nav-text">docker [ps|inspect|exec|logs|export|import]</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%95%9C%E5%83%8F%E6%93%8D%E4%BD%9C"><span class="nav-number">2.2.</span> <span class="nav-text">镜像操作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#docker-images-rmi-tag-build-history-save-load"><span class="nav-number">2.2.1.</span> <span class="nav-text">docker images|rmi|tag|build|history|save|load]</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%A4%E4%BA%92%E5%BC%8F%E5%88%9B%E5%BB%BA%E5%AE%B9%E5%99%A8%E5%B9%B6%E8%BF%9B%E5%85%A5"><span class="nav-number">2.3.</span> <span class="nav-text">交互式创建容器并进入</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Docker-%E5%AE%B9%E5%99%A8%E7%9A%84%E4%B8%BB%E4%B8%9A"><span class="nav-number">2.4.</span> <span class="nav-text">Docker 容器的主业</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8E%A8%E8%8D%90%E7%9A%84-ENTRYPOINT-%E6%96%B9%E5%BC%8F"><span class="nav-number">2.4.1.</span> <span class="nav-text">推荐的 ENTRYPOINT 方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%89%8B%E5%8A%A8%E6%89%93%E5%8C%85-SpringBoot-%E9%95%9C%E5%83%8F"><span class="nav-number">2.4.2.</span> <span class="nav-text">手动打包 SpringBoot 镜像</span></a></li></ol></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -237,7 +237,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Docker的安装使用
+          Docker的安装及使用
         </h1>
 
         <div class="post-meta-container">
@@ -249,7 +249,7 @@
       <span class="post-meta-item-text">Posted on</span>
       
 
-      <time title="Created: 2021-08-26 11:12:31 / Modified: 15:13:29" itemprop="dateCreated datePublished" datetime="2021-08-26T11:12:31+08:00">2021-08-26</time>
+      <time title="Created: 2021-08-26 11:12:31 / Modified: 16:17:05" itemprop="dateCreated datePublished" datetime="2021-08-26T11:12:31+08:00">2021-08-26</time>
     </span>
 
   
@@ -307,6 +307,30 @@
 <p>退出不关闭容器<br><code>Ctrl + P + Q</code></p>
 <p>启动 docker 后台进程<br><code>docker run -d --name [镜像名:版本号] /bin/bash</code></p>
 <p>进入已运行的容器<br><code>docker exec -it [容器名] /bin/bash</code></p>
+<h2 id="Docker-容器的主业"><a href="#Docker-容器的主业" class="headerlink" title="Docker 容器的主业"></a>Docker 容器的主业</h2><p>在 Docker 理念中，容器启动时，应当为它指定主业是什么，如 nginx 的容器主业是 nginx 代理服务，tomcat 容器的主业是 web 服务等。</p>
+<p>容器创建时，必须指定主业任务，如不指定，则容器退出。</p>
+<p>在 dockerfile 打包镜像时，可以使用 cmd 命令来指定一个默认的主业，如：</p>
+<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># base image</span></span><br><span class="line"><span class="keyword">FROM</span> cent-ngx2:latest</span><br><span class="line"></span><br><span class="line"><span class="keyword">ENV</span> PATH /usr/local/nginx/sbin:$PATH</span><br><span class="line"><span class="keyword">CMD</span><span class="bash"> [<span class="string">&quot;/bin/bash&quot;</span>, <span class="string">&quot;-c&quot;</span>, <span class="string">&quot;nginx -g&#x27;daemon off;&#x27;&quot;</span>]</span></span><br></pre></td></tr></table></figure>
+
+<p>既然镜像里是默认主业，则意味着在创建容器时，可以覆盖此默认命令，如：</p>
+<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker <span class="keyword">run</span><span class="bash"> -d --name test2 2825bf46c0e8 <span class="built_in">echo</span> <span class="string">&quot;hello&quot;</span></span></span><br></pre></td></tr></table></figure>
+
+<h3 id="推荐的-ENTRYPOINT-方式"><a href="#推荐的-ENTRYPOINT-方式" class="headerlink" title="推荐的 ENTRYPOINT 方式"></a>推荐的 ENTRYPOINT 方式</h3><p>镜像本身应该有稳定的主业，应当指定后不能更改用途，于是引入 ENTRYPOINT，使用 ENTRYPOINT 定义容器入口，它不能被 run 中的 CMD 命令覆盖，如：</p>
+<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># base image</span></span><br><span class="line"><span class="keyword">FROM</span> nginxx:v1</span><br><span class="line"></span><br><span class="line"><span class="keyword">ENV</span> PATH /usr/local/nginx/sbin:$PATH</span><br><span class="line"><span class="keyword">ENTRYPOINT</span><span class="bash"> [<span class="string">&quot;nginx&quot;</span>]	<span class="comment">#指定入口命令为 nginx 服务</span></span></span><br><span class="line"><span class="keyword">CMD</span><span class="bash"> [<span class="string">&quot;-g&quot;</span>,<span class="string">&quot;daemon off;&quot;</span>]	<span class="comment">#指定 nginx 命令的参数</span></span></span><br></pre></td></tr></table></figure>
+
+<p>执行 <code>docker build -t nginxx:v3</code></p>
+<h3 id="手动打包-SpringBoot-镜像"><a href="#手动打包-SpringBoot-镜像" class="headerlink" title="手动打包 SpringBoot 镜像"></a>手动打包 SpringBoot 镜像</h3><ol>
+<li><p>将 SpringBoot 打包好的 jar 包上传</p>
+</li>
+<li><p>在同级目录下，创建 Dockerfile 文件</p>
+ <figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost web]<span class="comment"># vi Dockerfile</span></span><br><span class="line"><span class="keyword">FROM</span> openjdk:<span class="number">8</span>	<span class="comment">#含 jdk8 的镜像</span></span><br><span class="line"><span class="keyword">ADD</span><span class="bash"> [<span class="string">&quot;member-1.0.jar&quot;</span>, <span class="string">&quot;web.jar&quot;</span>]</span></span><br><span class="line"><span class="keyword">EXPOSE</span> <span class="number">8090</span></span><br><span class="line"><span class="keyword">ENTRYPOINT</span><span class="bash"> [<span class="string">&quot;java&quot;</span>, <span class="string">&quot;-jar&quot;</span>, <span class="string">&quot;/web.jar&quot;</span>]	<span class="comment">#入口命令启动jar</span></span></span><br></pre></td></tr></table></figure></li>
+<li><p>dockerfile 打包业务镜像</p>
+ <figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost web]<span class="comment"># docker build -t member:v1</span></span><br><span class="line">Sending build context to Docker deamon <span class="number">17.69</span> MB</span><br><span class="line">Step <span class="number">1</span>/<span class="number">4</span> : <span class="keyword">FROM</span> openjdk:<span class="number">8</span></span><br><span class="line">...</span><br><span class="line">Successfully built <span class="number">10437</span>e588305</span><br></pre></td></tr></table></figure></li>
+<li><p>启动镜像，即得到业务运行<br> <code>docker run -d -p 8090:8090 --name member member:v1</code></p>
+</li>
+<li><p>打开浏览器校验页面</p>
+</li>
+</ol>
 
     </div>
 
@@ -324,7 +348,7 @@
   </li>
   <li class="post-copyright-link">
       <strong>Post link: </strong>
-      <a href="http://avisen95.com/posts/f9a8f708/" title="Docker的安装使用">http://avisen95.com/posts/f9a8f708/</a>
+      <a href="http://avisen95.com/posts/f9a8f708/" title="Docker的安装及使用">http://avisen95.com/posts/f9a8f708/</a>
   </li>
   <li class="post-copyright-license">
     <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.
