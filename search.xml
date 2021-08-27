@@ -1,6 +1,96 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>RabbitMQ的安装及使用</title>
+    <url>/posts/deb7f423/</url>
+    <content><![CDATA[<h1 id="RabbitMQ-安装"><a href="#RabbitMQ-安装" class="headerlink" title="RabbitMQ 安装"></a>RabbitMQ 安装</h1><p>安装环境：</p>
+<ul>
+<li>CentOS7    <span id="more"></span></li>
+</ul>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">wget https:<span class="comment">//packages.erlang-solutions.com/erlang-solutions-1.0-1.noarch.rpm</span></span><br><span class="line"></span><br><span class="line">rpm -Uvh erlang-solutions<span class="number">-1.0</span><span class="number">-1.</span>noarch.rpm</span><br><span class="line"></span><br><span class="line">yum install epel-release</span><br><span class="line"></span><br><span class="line">yum install erlang</span><br><span class="line"></span><br><span class="line">wget http:<span class="comment">//www.rabbitmq.com/releases/rabbitmq-server/v3.6.6/rabbitmq-server-3.6.6-1.el7.noarch.rpm</span></span><br><span class="line"></span><br><span class="line">yum install rabbitmq-server<span class="number">-3.6</span><span class="number">.6</span><span class="number">-1.</span>el7.noarch.rpm</span><br></pre></td></tr></table></figure>
+
+<h2 id="RabbitMQ-常用端口"><a href="#RabbitMQ-常用端口" class="headerlink" title="RabbitMQ 常用端口"></a><strong>RabbitMQ</strong> <strong>常用端口</strong></h2><p><strong>client 端通信端口： 5672</strong> </p>
+<p><strong>管理端口 ： 15672</strong> </p>
+<p><strong>server 间内部通信端口： 25672</strong> </p>
+<h2 id="可能的问题"><a href="#可能的问题" class="headerlink" title="可能的问题"></a><strong>可能的问题</strong></h2><p>如端口出现不能访问，考虑是否防火墙问题，可以使用形如以下命令开启或直接关闭防火墙： </p>
+<p><code>firewall-cmd --add-port=15672/tcp --permanent </code></p>
+<p>运行 rabbitmqctl status 出现 Error: unable to connect to node rabbit@controller: nodedown 之类问题考虑如下几种解决办法： </p>
+<p>1、重启服务 </p>
+<p><code>service rabbitmq-server stop </code></p>
+<p><code>service rabbitmq-server start </code></p>
+<p>2、检查 /var/lib/rabbitmq 中是否存在 .erlang.cookie，没有则新建一个，里面随便输入一段字符串 </p>
+<p>3、重新安装服务</p>
+<p>4、百度或者 Google 一下</p>
+<h1 id="管理-RabbitMQ"><a href="#管理-RabbitMQ" class="headerlink" title="管理 RabbitMQ"></a><strong>管理</strong> <strong>RabbitMQ</strong></h1><h2 id="日志一般存放位置"><a href="#日志一般存放位置" class="headerlink" title="日志一般存放位置"></a><strong>日志一般存放位置</strong></h2><h3 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a><strong>Linux</strong></h3><p><code>/var/log/rabbitmq/rabbit@XXX.log</code> </p>
+<p><code>/var/log/rabbitmq/rabbit@XXX-sasl.log</code> </p>
+<h3 id="Windows"><a href="#Windows" class="headerlink" title="Windows"></a><strong>Windows</strong></h3><p><code>C:\Users\Administrator\AppData\Roaming\RabbitMQ\log\ rabbit@XXX.log</code> </p>
+<p><code>C:\Users\Administrator\AppData\Roaming\RabbitMQ\log\ rabbit@ XXX-sasl.log</code> </p>
+<p>第一个是记录 MQ 启动、连接日志，第二个是 saal 用来记录 Erlang 相关的信息，例如查看 Erlang 崩溃的报告。</p>
+<h2 id="管理虚拟主机"><a href="#管理虚拟主机" class="headerlink" title="管理虚拟主机"></a><strong>管理虚拟主机</strong></h2><p><code>rabbitmqctl add_vhost [vhost_name]</code> </p>
+<p><code>rabbitmqctl list_vhosts</code></p>
+<h2 id="启动和关闭-rabbitmq"><a href="#启动和关闭-rabbitmq" class="headerlink" title="启动和关闭 rabbitmq"></a><strong>启动和关闭</strong> <strong>rabbitmq</strong></h2><h3 id="以服务方式"><a href="#以服务方式" class="headerlink" title="以服务方式"></a><strong>以服务方式</strong></h3><p><code>service rabbitmq-server stop</code> </p>
+<p><code>service rabbitmq-server start</code> </p>
+<p><code>service rabbitmq-server status</code> </p>
+<h3 id="以应用程序方式"><a href="#以应用程序方式" class="headerlink" title="以应用程序方式"></a><strong>以应用程序方式</strong></h3><p><code>rabbitmq-server</code> 启动 Erlang 节点和 Rabbitmq 应用 </p>
+<p><code>rabbitmqctl stop</code> 关闭 Erlang 节点和 Rabbitmq 应用 </p>
+<p><code>rabbitmqctl status</code> 可以检查消息节点是否正常 </p>
+<p>RabbitMQ 配置文件放在 <code>/etc/rabbitmq</code> 下，名为 <code>rabbitmq.config</code>，没有且需要使用则可以自己新建一个 </p>
+<h3 id="单独关闭-RabbitMQ-应用"><a href="#单独关闭-RabbitMQ-应用" class="headerlink" title="单独关闭 RabbitMQ 应用"></a><strong>单独关闭</strong> <strong>RabbitMQ</strong> <strong>应用</strong></h3><p><code>rabbitmqctl stop_app</code> 关闭 Rabbitmq 应用 </p>
+<p><code>rabbitmqctl start_app</code> 启动 Rabbitmq 应用 </p>
+<h2 id="用户管理"><a href="#用户管理" class="headerlink" title="用户管理"></a>用户管理</h2><p><code>rabbitmqctl add_user [username] [pwd]</code> </p>
+<p><code>rabbitmqctl delete_user [username]</code> </p>
+<p><code>rabbitmqctl change_password Username Newpasswordrabbitmqctl list_users</code> </p>
+<h2 id="用户权限控制"><a href="#用户权限控制" class="headerlink" title="用户权限控制"></a><strong>用户权限控制</strong></h2><h3 id="guest-用户"><a href="#guest-用户" class="headerlink" title="guest 用户"></a><strong>guest</strong> <strong>用户</strong></h3><p>guest 是默认用户，具有默认 virtual host “/“上的全部权限，仅能通过 localhost 访问 RabbitMQ 包括 Plugin，建议删除或更改密码。可通过将配置文件中 loopback_users 来取消其本地访问的限制：[{rabbit, [{loopback_users, []}]}] </p>
+<h3 id="用户权限"><a href="#用户权限" class="headerlink" title="用户权限"></a><strong>用户权限</strong></h3><p>用户仅能对其所能访问的 virtual hosts 中的资源进行操作。这里的资源指的是 virtual hosts 中的 exchanges、queues 等，操作包括对资源进行配置、写、 读。配置权限可创建、删除、资源并修改资源的行为，写权限可向资源发送消息，读权限从资源获取消息。比如： </p>
+<p>exchange 和 queue 的 declare 与 delete 分别需要：exchange 和 queue 上的配置权限 </p>
+<p>queue 的 bind 与 unbind 需要：queue 写权限，exchange 的读权限 </p>
+<p>发消息(publish)需 exchange 的写权限 </p>
+<p>获取或清除(get、consume、purge)消息需 queue 的读权限 </p>
+<p>对何种资源具有配置、写、读的权限通过正则表达式来匹配，具体命令如下： </p>
+<p><code>rabbitmqctl set_permissions [-p &lt;vhostpath&gt;] &lt;user&gt;&lt;conf&gt;&lt;write&gt;&lt;read&gt;</code> </p>
+<p>如用户 King 在虚拟主机 logHost 上的所有权限： </p>
+<p><code>rabbitmqctl set_permissions –p logHost King &#39;.*&#39; &#39;.*&#39; &#39;.*&#39;</code> </p>
+<h3 id="设置用户角色："><a href="#设置用户角色：" class="headerlink" title="设置用户角色："></a><strong>设置用户角色：</strong></h3><p>rabbitmqctl set_user_tags User Tag</p>
+<p>User 为用户名， Tag 为角色名(对应于下面的 administrator，monitoring，policymaker，management，none) </p>
+<h3 id="RabbitMQ-的用户角色分类"><a href="#RabbitMQ-的用户角色分类" class="headerlink" title="RabbitMQ 的用户角色分类"></a><strong>RabbitMQ</strong> <strong>的用户角色分类</strong></h3><h4 id="none"><a href="#none" class="headerlink" title="none"></a>none</h4><ul>
+<li>不能访问 management plugin，通常就是普通的生产者和消费者 </li>
+</ul>
+<h4 id="management"><a href="#management" class="headerlink" title="management"></a>management</h4><ul>
+<li>普通的生产者和消费者加： </li>
+<li>列出自己可以通过 AMQP 登入的 virtual hosts </li>
+<li>查看自己的 virtual hosts 中的 queues, exchanges 和 bindings </li>
+<li>查看和关闭自己的 channels 和 connections </li>
+<li>查看有关自己的 virtual hosts 的“全局”的统计信息，包含其他用户在这些 virtual hosts 中的活动。 </li>
+</ul>
+<h4 id="policymaker"><a href="#policymaker" class="headerlink" title="policymaker"></a>policymaker</h4><ul>
+<li>management 可以做的任何事加： </li>
+<li>查看、创建和删除自己的 virtual hosts 所属的 policies 和 parameters </li>
+</ul>
+<h4 id="monitoring"><a href="#monitoring" class="headerlink" title="monitoring"></a>monitoring</h4><ul>
+<li>management 可以做的任何事加： </li>
+<li>列出所有 virtual hosts，包括他们不能登录的 virtual hosts </li>
+<li>查看其他用户的 connections 和 channels </li>
+<li>查看节点级别的数据如 clustering 和 memory 使用情况 </li>
+<li>查看真正的关于所有 virtual hosts 的全局的统计信息</li>
+</ul>
+<h4 id="administrator"><a href="#administrator" class="headerlink" title="administrator"></a>administrator</h4><ul>
+<li>policymaker 和 monitoring 可以做的任何事加: </li>
+<li>创建和删除 virtual hosts </li>
+<li>查看、创建和删除 users </li>
+<li>查看创建和删除 permissions </li>
+<li>关闭其他用户的 connections </li>
+</ul>
+<h1 id="查看"><a href="#查看" class="headerlink" title="查看"></a><strong>查看</strong></h1><h2 id="查看队列"><a href="#查看队列" class="headerlink" title="查看队列"></a><strong>查看队列</strong></h2><p><code>rabbitmqctl list_queues</code> </p>
+<h2 id="查看交换器"><a href="#查看交换器" class="headerlink" title="查看交换器"></a><strong>查看交换器</strong></h2><p><code>rabbitmqctl list_exchanges</code> </p>
+<h2 id="查看绑定"><a href="#查看绑定" class="headerlink" title="查看绑定"></a><strong>查看绑定</strong></h2><p><code>rabbitmqctl list_bindings</code> </p>
+<p>如果命令不太懂，可以直接 rabbitmqctl 命令进行查询</p>
+]]></content>
+      <tags>
+        <tag>RabbitMQ</tag>
+        <tag>MQ</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Redis常用命令</title>
     <url>/posts/ed3b1c3a/</url>
     <content><![CDATA[<h1 id="Redis-介绍"><a href="#Redis-介绍" class="headerlink" title="Redis 介绍"></a>Redis 介绍</h1><p>Redis 是一种基于键值对（key-value）的数据库，其中 value 可以为 String、Hash、List、 Set、Zset 等多种数据结构，可以满足很多应用场景。还提供了键过期，发布订阅，事务， 流水线，等附加功能。</p>
@@ -109,40 +199,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Spring源码分析</title>
-    <url>/posts/9998d034/</url>
-    <content><![CDATA[<p>本文将记录编译学习Spring源码并理解其设计思想的笔记。</p>
-<p>编译环境：</p>
-<ul>
-<li>Spring版本：5.2.8</li>
-<li>Gradle</li>
-<li>Idea</li>
-</ul>
-<span id="more"></span>
-
-<h1 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h1><h2 id="下载源码"><a href="#下载源码" class="headerlink" title="下载源码"></a>下载源码</h2><p><code>git clone --branch v5.2.8.RELEASE https://gitee.com/Z201/spring-framework.git</code></p>
-<h2 id="修改-settings-gradle-文件"><a href="#修改-settings-gradle-文件" class="headerlink" title="修改 settings.gradle 文件"></a>修改 settings.gradle 文件</h2><figure class="highlight c"><table><tr><td class="code"><pre><span class="line">repositories &#123;</span><br><span class="line">  gradlePluginPortal()</span><br><span class="line">  maven &#123; url <span class="string">&#x27;https://maven.aliyun.com/repository/public&#x27;</span> &#125;</span><br><span class="line">  maven &#123; url <span class="string">&#x27;https://repo.spring.io/plugins-release&#x27;</span> &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="修改-gradle-properties-文件"><a href="#修改-gradle-properties-文件" class="headerlink" title="修改 gradle.properties 文件"></a>修改 gradle.properties 文件</h2><figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="attr">version</span>=<span class="string">5.2.8.RELEASE</span></span><br><span class="line"><span class="meta">org.gradle.jvmargs</span>=<span class="string">-Xmx2048M</span></span><br><span class="line"><span class="meta">org.gradle.caching</span>=<span class="string">true</span></span><br><span class="line"><span class="meta">org.gradle.parallel</span>=<span class="string">true</span></span><br><span class="line"><span class="meta">org.gradle.configureondemand</span>=<span class="string">true</span></span><br><span class="line"><span class="meta">org.gradle.daemon</span>=<span class="string">true</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="修改-build-gradle-文件"><a href="#修改-build-gradle-文件" class="headerlink" title="修改 build.gradle 文件"></a>修改 build.gradle 文件</h2><figure class="highlight groovy"><table><tr><td class="code"><pre><span class="line">maven &#123; url <span class="string">&#x27;https://maven.aliyun.com/nexus/content/groups/public/&#x27;</span> &#125;</span><br><span class="line">maven &#123; url <span class="string">&#x27;https://maven.aliyun.com/nexus/content/repositories/jcenter&#x27;</span>&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="编译-1"><a href="#编译-1" class="headerlink" title="编译"></a>编译</h2><p><code>gradlew :spring-oxm:compileTestJava</code></p>
-<p>出现 BUILD SUCCESSFUL 即为编译成功</p>
-<h2 id="IDEA导入"><a href="#IDEA导入" class="headerlink" title="IDEA导入"></a>IDEA导入</h2><p>File<br>    &gt; New<br>        &gt; Project from Existing Souces<br>            &gt; spring-framework-master<br>                &gt; Import project from external model<br>                    &gt; Gradle</p>
-<p>控制台出现 BUILD SUCCESSFUL 即为导入成功</p>
-<h2 id="在测试工程中关联本地Spring包"><a href="#在测试工程中关联本地Spring包" class="headerlink" title="在测试工程中关联本地Spring包"></a>在测试工程中关联本地Spring包</h2><p>新建工程</p>
-<p>test-project<br>    &gt; Project Structure<br>        &gt; Libraries<br>            &gt; 修改 Classes 与 Sources 的源，确定</p>
-]]></content>
-      <categories>
-        <category>Spring源码</category>
-      </categories>
-      <tags>
-        <tag>Spring</tag>
-        <tag>源码</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Docker的安装及使用</title>
     <url>/posts/f9a8f708/</url>
     <content><![CDATA[<p>记录 Docker 在 CentOS7 下的安装与常用命令</p>
@@ -217,6 +273,40 @@
 ]]></content>
       <tags>
         <tag>Docker</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Spring源码分析（一）</title>
+    <url>/posts/9998d034/</url>
+    <content><![CDATA[<p>本文将记录编译学习Spring源码的过程。</p>
+<p>编译环境：</p>
+<ul>
+<li>Spring版本：5.2.8</li>
+<li>Gradle</li>
+<li>Idea</li>
+</ul>
+<span id="more"></span>
+
+<h1 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h1><h2 id="下载源码"><a href="#下载源码" class="headerlink" title="下载源码"></a>下载源码</h2><p><code>git clone --branch v5.2.8.RELEASE https://gitee.com/Z201/spring-framework.git</code></p>
+<h2 id="修改-settings-gradle-文件"><a href="#修改-settings-gradle-文件" class="headerlink" title="修改 settings.gradle 文件"></a>修改 settings.gradle 文件</h2><figure class="highlight c"><table><tr><td class="code"><pre><span class="line">repositories &#123;</span><br><span class="line">  gradlePluginPortal()</span><br><span class="line">  maven &#123; url <span class="string">&#x27;https://maven.aliyun.com/repository/public&#x27;</span> &#125;</span><br><span class="line">  maven &#123; url <span class="string">&#x27;https://repo.spring.io/plugins-release&#x27;</span> &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="修改-gradle-properties-文件"><a href="#修改-gradle-properties-文件" class="headerlink" title="修改 gradle.properties 文件"></a>修改 gradle.properties 文件</h2><figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="attr">version</span>=<span class="string">5.2.8.RELEASE</span></span><br><span class="line"><span class="meta">org.gradle.jvmargs</span>=<span class="string">-Xmx2048M</span></span><br><span class="line"><span class="meta">org.gradle.caching</span>=<span class="string">true</span></span><br><span class="line"><span class="meta">org.gradle.parallel</span>=<span class="string">true</span></span><br><span class="line"><span class="meta">org.gradle.configureondemand</span>=<span class="string">true</span></span><br><span class="line"><span class="meta">org.gradle.daemon</span>=<span class="string">true</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="修改-build-gradle-文件"><a href="#修改-build-gradle-文件" class="headerlink" title="修改 build.gradle 文件"></a>修改 build.gradle 文件</h2><figure class="highlight groovy"><table><tr><td class="code"><pre><span class="line">maven &#123; url <span class="string">&#x27;https://maven.aliyun.com/nexus/content/groups/public/&#x27;</span> &#125;</span><br><span class="line">maven &#123; url <span class="string">&#x27;https://maven.aliyun.com/nexus/content/repositories/jcenter&#x27;</span>&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="编译-1"><a href="#编译-1" class="headerlink" title="编译"></a>编译</h2><p><code>gradlew :spring-oxm:compileTestJava</code></p>
+<p>出现 BUILD SUCCESSFUL 即为编译成功</p>
+<h2 id="IDEA导入"><a href="#IDEA导入" class="headerlink" title="IDEA导入"></a>IDEA导入</h2><p>File<br>    &gt; New<br>        &gt; Project from Existing Souces<br>            &gt; spring-framework-master<br>                &gt; Import project from external model<br>                    &gt; Gradle</p>
+<p>控制台出现 BUILD SUCCESSFUL 即为导入成功</p>
+<h2 id="在测试工程中关联本地Spring包"><a href="#在测试工程中关联本地Spring包" class="headerlink" title="在测试工程中关联本地Spring包"></a>在测试工程中关联本地Spring包</h2><p>新建工程</p>
+<p>test-project<br>    &gt; Project Structure<br>        &gt; Libraries<br>            &gt; 修改 Classes 与 Sources 的源，确定</p>
+]]></content>
+      <categories>
+        <category>Spring源码</category>
+      </categories>
+      <tags>
+        <tag>Spring</tag>
+        <tag>源码</tag>
       </tags>
   </entry>
   <entry>
