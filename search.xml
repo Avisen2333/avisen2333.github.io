@@ -4,6 +4,8 @@
     <title>Redis常用命令</title>
     <url>/posts/ed3b1c3a/</url>
     <content><![CDATA[<h1 id="Redis-介绍"><a href="#Redis-介绍" class="headerlink" title="Redis 介绍"></a>Redis 介绍</h1><p>Redis 是一种基于键值对（key-value）的数据库，其中 value 可以为 String、Hash、List、 Set、Zset 等多种数据结构，可以满足很多应用场景。还提供了键过期，发布订阅，事务， 流水线，等附加功能。</p>
+<span id="more"></span>
+
 <p>流水线：Redis 的流水线功能允许客户端一次将多个命令请求发送给服务器， 并将被执行的多个命令请求的结果在一个命令回复中全部返回给客户端，使用这个功能可以有效地减少客户端在执行多个命令时需要与服务器进行通信的次数。 </p>
 <h2 id="特性"><a href="#特性" class="headerlink" title="特性"></a>特性</h2><ol>
 <li>速度快，数据放在内存中，官方给出的读写性能 10 万/S，与机器性能也有关<br> 数据放内存中是速度快的主要原因 <ol>
@@ -107,6 +109,40 @@
       </tags>
   </entry>
   <entry>
+    <title>Spring源码分析</title>
+    <url>/posts/9998d034/</url>
+    <content><![CDATA[<p>本文将记录编译学习Spring源码并理解其设计思想的笔记。</p>
+<p>编译环境：</p>
+<ul>
+<li>Spring版本：5.2.8</li>
+<li>Gradle</li>
+<li>Idea</li>
+</ul>
+<span id="more"></span>
+
+<h1 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h1><h2 id="下载源码"><a href="#下载源码" class="headerlink" title="下载源码"></a>下载源码</h2><p><code>git clone --branch v5.2.8.RELEASE https://gitee.com/Z201/spring-framework.git</code></p>
+<h2 id="修改-settings-gradle-文件"><a href="#修改-settings-gradle-文件" class="headerlink" title="修改 settings.gradle 文件"></a>修改 settings.gradle 文件</h2><figure class="highlight c"><table><tr><td class="code"><pre><span class="line">repositories &#123;</span><br><span class="line">  gradlePluginPortal()</span><br><span class="line">  maven &#123; url <span class="string">&#x27;https://maven.aliyun.com/repository/public&#x27;</span> &#125;</span><br><span class="line">  maven &#123; url <span class="string">&#x27;https://repo.spring.io/plugins-release&#x27;</span> &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="修改-gradle-properties-文件"><a href="#修改-gradle-properties-文件" class="headerlink" title="修改 gradle.properties 文件"></a>修改 gradle.properties 文件</h2><figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="attr">version</span>=<span class="string">5.2.8.RELEASE</span></span><br><span class="line"><span class="meta">org.gradle.jvmargs</span>=<span class="string">-Xmx2048M</span></span><br><span class="line"><span class="meta">org.gradle.caching</span>=<span class="string">true</span></span><br><span class="line"><span class="meta">org.gradle.parallel</span>=<span class="string">true</span></span><br><span class="line"><span class="meta">org.gradle.configureondemand</span>=<span class="string">true</span></span><br><span class="line"><span class="meta">org.gradle.daemon</span>=<span class="string">true</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="修改-build-gradle-文件"><a href="#修改-build-gradle-文件" class="headerlink" title="修改 build.gradle 文件"></a>修改 build.gradle 文件</h2><figure class="highlight groovy"><table><tr><td class="code"><pre><span class="line">maven &#123; url <span class="string">&#x27;https://maven.aliyun.com/nexus/content/groups/public/&#x27;</span> &#125;</span><br><span class="line">maven &#123; url <span class="string">&#x27;https://maven.aliyun.com/nexus/content/repositories/jcenter&#x27;</span>&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="编译-1"><a href="#编译-1" class="headerlink" title="编译"></a>编译</h2><p><code>gradlew :spring-oxm:compileTestJava</code></p>
+<p>出现 BUILD SUCCESSFUL 即为编译成功</p>
+<h2 id="IDEA导入"><a href="#IDEA导入" class="headerlink" title="IDEA导入"></a>IDEA导入</h2><p>File<br>    &gt; New<br>        &gt; Project from Existing Souces<br>            &gt; spring-framework-master<br>                &gt; Import project from external model<br>                    &gt; Gradle</p>
+<p>控制台出现 BUILD SUCCESSFUL 即为导入成功</p>
+<h2 id="在测试工程中关联本地Spring包"><a href="#在测试工程中关联本地Spring包" class="headerlink" title="在测试工程中关联本地Spring包"></a>在测试工程中关联本地Spring包</h2><p>新建工程</p>
+<p>test-project<br>    &gt; Project Structure<br>        &gt; Libraries<br>            &gt; 修改 Classes 与 Sources 的源，确定</p>
+]]></content>
+      <categories>
+        <category>Spring源码</category>
+      </categories>
+      <tags>
+        <tag>Spring</tag>
+        <tag>源码</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Docker的安装及使用</title>
     <url>/posts/f9a8f708/</url>
     <content><![CDATA[<p>记录 Docker 在 CentOS7 下的安装与常用命令</p>
@@ -181,40 +217,6 @@
 ]]></content>
       <tags>
         <tag>Docker</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Spring源码分析</title>
-    <url>/posts/9998d034/</url>
-    <content><![CDATA[<p>本文将记录编译学习Spring源码并理解其设计思想的笔记。</p>
-<p>编译环境：</p>
-<ul>
-<li>Spring版本：5.2.8</li>
-<li>Gradle</li>
-<li>Idea</li>
-</ul>
-<span id="more"></span>
-
-<h1 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h1><h2 id="下载源码"><a href="#下载源码" class="headerlink" title="下载源码"></a>下载源码</h2><p><code>git clone --branch v5.2.8.RELEASE https://gitee.com/Z201/spring-framework.git</code></p>
-<h2 id="修改-settings-gradle-文件"><a href="#修改-settings-gradle-文件" class="headerlink" title="修改 settings.gradle 文件"></a>修改 settings.gradle 文件</h2><figure class="highlight c"><table><tr><td class="code"><pre><span class="line">repositories &#123;</span><br><span class="line">  gradlePluginPortal()</span><br><span class="line">  maven &#123; url <span class="string">&#x27;https://maven.aliyun.com/repository/public&#x27;</span> &#125;</span><br><span class="line">  maven &#123; url <span class="string">&#x27;https://repo.spring.io/plugins-release&#x27;</span> &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="修改-gradle-properties-文件"><a href="#修改-gradle-properties-文件" class="headerlink" title="修改 gradle.properties 文件"></a>修改 gradle.properties 文件</h2><figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="attr">version</span>=<span class="string">5.2.8.RELEASE</span></span><br><span class="line"><span class="meta">org.gradle.jvmargs</span>=<span class="string">-Xmx2048M</span></span><br><span class="line"><span class="meta">org.gradle.caching</span>=<span class="string">true</span></span><br><span class="line"><span class="meta">org.gradle.parallel</span>=<span class="string">true</span></span><br><span class="line"><span class="meta">org.gradle.configureondemand</span>=<span class="string">true</span></span><br><span class="line"><span class="meta">org.gradle.daemon</span>=<span class="string">true</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="修改-build-gradle-文件"><a href="#修改-build-gradle-文件" class="headerlink" title="修改 build.gradle 文件"></a>修改 build.gradle 文件</h2><figure class="highlight groovy"><table><tr><td class="code"><pre><span class="line">maven &#123; url <span class="string">&#x27;https://maven.aliyun.com/nexus/content/groups/public/&#x27;</span> &#125;</span><br><span class="line">maven &#123; url <span class="string">&#x27;https://maven.aliyun.com/nexus/content/repositories/jcenter&#x27;</span>&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="编译-1"><a href="#编译-1" class="headerlink" title="编译"></a>编译</h2><p><code>gradlew :spring-oxm:compileTestJava</code></p>
-<p>出现 BUILD SUCCESSFUL 即为编译成功</p>
-<h2 id="IDEA导入"><a href="#IDEA导入" class="headerlink" title="IDEA导入"></a>IDEA导入</h2><p>File<br>    &gt; New<br>        &gt; Project from Existing Souces<br>            &gt; spring-framework-master<br>                &gt; Import project from external model<br>                    &gt; Gradle</p>
-<p>控制台出现 BUILD SUCCESSFUL 即为导入成功</p>
-<h2 id="在测试工程中关联本地Spring包"><a href="#在测试工程中关联本地Spring包" class="headerlink" title="在测试工程中关联本地Spring包"></a>在测试工程中关联本地Spring包</h2><p>新建工程</p>
-<p>test-project<br>    &gt; Project Structure<br>        &gt; Libraries<br>            &gt; 修改 Classes 与 Sources 的源，确定</p>
-]]></content>
-      <categories>
-        <category>Spring源码</category>
-      </categories>
-      <tags>
-        <tag>Spring</tag>
-        <tag>源码</tag>
       </tags>
   </entry>
   <entry>
